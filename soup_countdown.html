@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+        font-family: 'Bebas Neue', cursive;
+        /* font-size: 14vw; */
+        }
+
+		.soup {
+            background-color: rgb(219, 185, 195);
+            display: flex;
+            padding: 15px;
+            width: 400px;
+            align-items: center;
+            font-size: 3em;
+            line-height: 1;
+            color: white;
+            text-align: center;
+            /* height: 200px; */
+		}
+
+        .icon_left {
+            flex: 1;
+            /* outline: 1px solid black; */
+        }
+
+        .text_right {
+            flex: 2;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        p {
+            line-height: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="soup">
+        <div class="icon_left">
+            <img src="soup.png" alt="soup">
+        </div>
+        <div class="text_right">
+            <span id="soup_text"></span></br>
+            <span id="soup_timer"></span>
+        </div>
+    </div>
+
+    <script>
+        const start = [[0, 00], [1, 30], [3, 00], [4, 30], [6, 00], [7, 30], [9, 00], [10, 30], [12, 00], [13, 30], [15, 00], [16, 30], [18, 00], [18, 00], [19, 30],  [21, 00], [22, 30]]
+        const end = [[0,15], [1, 45], [3, 15], [4, 45], [6, 15], [7, 45], [9, 15], [10, 45], [12, 15], [13, 45], [15, 15], [16, 45], [18, 15], [18, 15], [19, 45],  [21, 15], [22, 45]]
+
+        setInterval(function() {
+            const now = new Date();
+            const nextSoup = start.find(it => it[0] > now.getHours() || it[0] == now.getHours() &&  it[1] >= now.getMinutes()) || times[0];
+            const nextEnd = end.find(it => it[0] > now.getHours() || it[0] == now.getHours() &&  it[1] >= now.getMinutes()) || times[0];
+
+            var hours = nextSoup[0] - now.getHours();
+            var minutes = nextSoup[1] - now.getMinutes();
+            if(minutes < 0) { minutes += 60; hours -= 1 }
+            if(hours < 0) { hours += 24; }
+            var seconds = 60 - now.getSeconds();
+
+            if(hours == 1 && minutes >= 15) {
+                var hours = nextEnd[0] - now.getHours();
+                var minutes = nextEnd[1] - now.getMinutes();
+                if(minutes < 0) { minutes += 60; hours -= 1 }
+                if(hours < 0) { hours += 24; }
+                var seconds = 60 - now.getSeconds();
+
+                document.getElementById("soup_text").innerHTML = "YES CHEF!"
+                document.getElementById("soup_text").style = "color: red"
+                document.getElementById("soup_timer").style = "color: red"
+            }
+            else {
+                document.getElementById("soup_text").innerHTML = "NEXT SOUP IN:"
+                document.getElementById("soup_text").style = "color: white"
+                document.getElementById("soup_timer").style = "color: white"
+            }
+            document.getElementById("soup_timer").innerHTML = `${hours.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}:${minutes.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}:${seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}`
+        }, 1000);
+
+    </script>
+
+</body>
+</html>
