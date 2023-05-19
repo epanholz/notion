@@ -16,18 +16,18 @@
             /* background-color: #233486; */
             display: flex;
             padding: 15px;
-            width: 350px;
+            width: 370px;
             align-items: center;
             font-size: 3em;
             line-height: 1;
             color: white;
             text-align: center;
-            /* border: solid 5px #233486; */
+            border: solid 3px #c1c1c1;
             /* height: 200px; */
 		}
 
         .icon_left {
-            flex: 1.5;
+            flex: 1.4;
             /* outline: 1px solid black; */
         }
 
@@ -49,7 +49,7 @@
 
     <div class="soup">
         <div class="icon_left">
-            <img src="soup2.png" alt="soup">
+            <img src="soup.png" alt="soup">
         </div>
         <div class="text_right">
             <span id="soup_text"></span></br>
@@ -84,9 +84,9 @@
                 document.getElementById("soup_timer").style = "color: #d43d0b"
             }
             else {
-                document.getElementById("soup_text").innerHTML = "NEXT SOUP IN:"
-                document.getElementById("soup_text").style = "color: white"
-                document.getElementById("soup_timer").style = "color: white"
+                document.getElementById("soup_text").innerHTML = "NEXT SOUP"
+                document.getElementById("soup_text").style = "color: #c1c1c1"
+                document.getElementById("soup_timer").style = "color: #c1c1c1"
             }
             document.getElementById("soup_timer").innerHTML = `${hours.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}:${minutes.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}:${seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})}`
         }, 1000);
