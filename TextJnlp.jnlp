@@ -12,5 +12,5 @@
 		<j2se version="1.6+" />
 		<jar href="TextJnlp.jar" />
 	</resources>
-	<applet-desc main-class="TextJnlp" name="Text JNLP"  height="1" width="1" />
+	<applet-desc main-class="TextJnlp" name="Text JNLP"  height="300" width="300" />
 </jnlp>
