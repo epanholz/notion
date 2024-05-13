@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<jnlp spec="1.0+" codebase="https://epanholz.github.io/notion/" href="TextJnlp.jnlp">
+	<information>
+		<title>Text Area Jnlp</title>
+		<vendor>Example Vendor</vendor>
+		<description>A simple text area JNLP application</description>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="TextJnlp.jar" />
+	</resources>
+	<applet-desc main-class="TextJnlp" name="Text JNLP" />
+</jnlp>
